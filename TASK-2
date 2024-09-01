@@ -1,0 +1,88 @@
+TASK DESCRIPTION: 
+
+Input: Take marks obtained (out of 100) in each subject.
+Calculate Total Marks: Sum up the marks obtained in all subjects.
+Calculate Average Percentage: Divide the total marks by the total number of subjects to get the
+average percentage.
+Grade Calculation: Assign grades based on the average percentage achieved.
+Display Results: Show the total marks, average percentage, and the corresponding grade to the user
+
+JAVA PROGRAM:
+
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the number of subjects
+        System.out.print("Enter the number of subjects: ");
+        int numberOfSubjects = scanner.nextInt();
+
+        // Initialize an array to store marks and a variable for total marks
+        int[] marks = new int[numberOfSubjects];
+        int totalMarks = 0;
+
+        // Take marks input from the user
+        for (int i = 0; i < numberOfSubjects; i++) {
+            System.out.print("Enter marks obtained in subject " + (i + 1) + " (out of 100): ");
+            marks[i] = scanner.nextInt();
+            totalMarks += marks[i];
+        }
+
+        // Calculate average percentage
+        double averagePercentage = (double) totalMarks / numberOfSubjects;
+
+        // Determine the grade based on average percentage
+        char grade;
+        if (averagePercentage >= 90) {
+            grade = 'A';
+        } else if (averagePercentage >= 80) {
+            grade = 'B';
+        } else if (averagePercentage >= 70) {
+            grade = 'C';
+        } else if (averagePercentage >= 60) {
+            grade = 'D';
+        } else if (averagePercentage >= 50) {
+            grade = 'E';
+        } else {
+            grade = 'F';
+        }
+
+        // Display the results
+        System.out.println("\n--- Results ---");
+        System.out.println("Total Marks: " + totalMarks + " out of " + (numberOfSubjects * 100));
+        System.out.println("Average Percentage: " + averagePercentage + "%");
+        System.out.println("Grade: " + grade);
+
+        scanner.close();
+    }
+}
+
+OUTPUT:
+
+Enter the number of subjects: 5
+Enter marks obtained in subject 1 (out of 100): 85
+Enter marks obtained in subject 2 (out of 100): 78
+Enter marks obtained in subject 3 (out of 100): 92
+Enter marks obtained in subject 4 (out of 100): 88
+Enter marks obtained in subject 5 (out of 100): 74
+
+--- Results ---
+Total Marks: 417 out of 500
+Average Percentage: 83.4%
+Grade: B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
